@@ -34,6 +34,7 @@ namespace POC.Models
         //public string id { get; set; }
         public Newdevice newDevice { get; set; }
         public Newprofilecontact newProfileContact { get; set; }
+   
     }
 
     public class Newdevice
@@ -79,7 +80,7 @@ namespace POC.Models
         public bool isEmailPublic { get; set; }
         public int viewCounter { get; set; }
 
-        public int phoneType { get; set; }
+        public PhoneType phoneType { get; set; }
 
         [Display(Name = "User Id")]
         public string userId { get; set; }
@@ -202,5 +203,10 @@ namespace POC.Models
         Celebrity = 5,
         Worker = 6
     }
-
+    public enum PhoneType
+    {
+        mobile = 0,
+        landline = 1,
+        voip = 2
+    }
 }

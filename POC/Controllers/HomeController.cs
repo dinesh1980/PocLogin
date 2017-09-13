@@ -34,7 +34,7 @@ namespace POC.Controllers
                 obj.devicePlatform = Request.Browser.Platform;// "Windows";
                 obj.snsDeviceId = Guid.NewGuid().ToString();// "d4bc2ea4-1868-469b-a6c3-0f518e4f0218";
                 model.newDevice = obj;
-               // model.id = Guid.NewGuid().ToString();
+                               // model.id = Guid.NewGuid().ToString();
                 model.newProfileContact.ownerId = Guid.NewGuid().ToString();
                // model.newProfileContact.userId =  Guid.NewGuid().ToString();
                 var client = new RestClient(CommonUtility.ApirUrl + "Polls/Registration");
@@ -44,6 +44,7 @@ namespace POC.Controllers
                 request.AddJsonBody(model);
                 //System.IO.File.WriteAllText(@"D:\path1.json", Newtonsoft.Json.JsonConvert.SerializeObject(model));
                 IRestResponse æ = client.Execute(request);
+
             }
             return View();
         }
