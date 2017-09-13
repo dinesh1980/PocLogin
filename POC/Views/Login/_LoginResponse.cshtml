@@ -1,0 +1,75 @@
+﻿@model POC.Models.LoginResponse
+
+@if (Model != null)
+{
+    <table class="table">
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.userId)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.token)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.displayName)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.isEmailVerified)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.isPhoneVerified)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.isCallVerified)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.secretAccessKey)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.userName)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.deviceId)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.isPartner)
+            </th>
+            <th></th>
+        </tr>
+
+        <tr>
+            <td>
+                @Html.DisplayFor(model => model.userId)
+            </td>
+            <td>
+                @Html.DisplayFor(model => model.token)
+            </td>
+            <td>
+                @Html.DisplayFor(model => model.displayName)
+            </td>
+            <td>
+                @Html.CheckBoxFor(model => model.isEmailVerified)
+            </td>
+            <td>
+                @Html.DisplayFor(model => model.isPhoneVerified)
+            </td>
+            <td>
+                @Html.CheckBoxFor(model => model.isCallVerified)
+            </td>
+            <td>
+                @Html.DisplayFor(model => model.secretAccessKey)
+            </td>
+            <td>
+                @Html.DisplayFor(model => model.userName)
+            </td>
+            <td>
+                @Html.DisplayFor(model => model.deviceId)
+            </td>
+            <td>
+                @Html.DisplayFor(model => model.isPartner)
+            </td>
+        </tr>
+        }
+
+    </table>
+}
