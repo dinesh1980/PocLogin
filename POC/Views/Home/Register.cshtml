@@ -3,6 +3,15 @@
 @{
     ViewBag.Title = "User Registration";
 }
+<style>
+    .text-danger {
+        font-weight: bold;
+        color: rgba(255, 21, 21, 0.91);
+        padding: 0px 14px;
+        margin-top: -1px;
+        position: absolute;
+    }
+</style>
 
 <div class="panel panel-primary" style="margin:20px;">
     <div class="panel-heading">
@@ -53,23 +62,23 @@
                 </div>
                 <div class="form-group col-md-6 col-sm-6">
                     @Html.LabelFor(model => model.newProfileContact.phoneNumber, htmlAttributes: new { @class = "" })
-                    @Html.TextBoxFor(model => model.newProfileContact.phoneNumber,  new { @class = "form-control input-sm"  })
+                    @Html.TextBoxFor(model => model.newProfileContact.phoneNumber, new { @class = "form-control input-sm" })
                     @Html.ValidationMessageFor(model => model.newProfileContact.phoneNumber, "", new { @class = "text-danger" })
                 </div>
                 <div class="form-group col-md-6 col-sm-6">
                     @Html.LabelFor(model => model.org, htmlAttributes: new { @class = "" })
-                    @Html.TextBoxFor(model => model.org,  new { @class = "form-control"  })
+                    @Html.TextBoxFor(model => model.org, new { @class = "form-control input-sm" })
                     @Html.ValidationMessageFor(model => model.org, "", new { @class = "text-danger" })
                 </div>
                 <div class="form-group col-md-6 col-sm-6">
 
                     @Html.LabelFor(model => model.newProfileContact.companyName, htmlAttributes: new { @class = "" })
-                    @Html.TextBoxFor(model => model.newProfileContact.companyName,  new { @class = "form-control input-sm"  })
+                    @Html.TextBoxFor(model => model.newProfileContact.companyName, new { @class = "form-control input-sm" })
                     @Html.ValidationMessageFor(model => model.newProfileContact.companyName, "", new { @class = "text-danger" })
                 </div>
                 <div class="form-group col-md-6 col-sm-6">
                     @Html.LabelFor(model => model.newProfileContact.jobTitle, htmlAttributes: new { @class = "" })
-                    @Html.TextBoxFor(model => model.newProfileContact.jobTitle,  new { @class = "form-control input-sm"  })
+                    @Html.TextBoxFor(model => model.newProfileContact.jobTitle, new { @class = "form-control input-sm" })
                     @Html.ValidationMessageFor(model => model.newProfileContact.jobTitle, "", new { @class = "text-danger" })
                 </div>
                 @*<div class="form-group">
@@ -82,56 +91,23 @@
 
                 <div class="form-group col-md-6 col-sm-6">
                     @Html.LabelFor(model => model.newProfileContact.educationLevel, htmlAttributes: new { @class = "" })
-                    @Html.TextBoxFor(model => model.newProfileContact.educationLevel,  new { @class = "form-control input-sm"  })
+                    @Html.TextBoxFor(model => model.newProfileContact.educationLevel, new { @class = "form-control input-sm" })
                     @Html.ValidationMessageFor(model => model.newProfileContact.educationLevel, "", new { @class = "text-danger" })
                 </div>
 
                 <div class="form-group col-md-6 col-sm-6">
                     @Html.LabelFor(model => model.newProfileContact.relationshipStatus, htmlAttributes: new { @class = "" })
-                    @Html.TextBoxFor(model => model.newProfileContact.relationshipStatus,  new { @class = "form-control input-sm"  })
+                    @Html.TextBoxFor(model => model.newProfileContact.relationshipStatus, new { @class = "form-control input-sm" })
                     @Html.ValidationMessageFor(model => model.newProfileContact.relationshipStatus, "", new { @class = "text-danger" })
                 </div>
 
                 <div class="form-group col-md-6 col-sm-6">
                     @Html.LabelFor(model => model.newProfileContact.maritalStatus, htmlAttributes: new { @class = "" })
-                    @Html.TextBoxFor(model => model.newProfileContact.maritalStatus,  new { @class = "form-control input-sm"  })
+                    @Html.TextBoxFor(model => model.newProfileContact.maritalStatus, new { @class = "form-control input-sm" })
                     @Html.ValidationMessageFor(model => model.newProfileContact.maritalStatus, "", new { @class = "text-danger" })
                 </div>
 
-
-
-                @*<div class="form-group">
-                        @Html.LabelFor(model => model.newProfileContact.pictureId, htmlAttributes: new { @class = "control-label col-md-2" })
-                        <div class="col-md-10">
-                            @Html.TextBoxFor(model => model.newProfileContact.pictureId,  new { @class = "form-control"  })
-                            @Html.ValidationMessageFor(model => model.newProfileContact.pictureId, "", new { @class = "text-danger" })
-                        </div>
-                    </div>*@
-
-                <div class="form-group col-md-6 col-sm-6">
-                    @Html.LabelFor(model => model.newProfileContact.isPublicProfile, htmlAttributes: new { @class = "" })
-                    <div class="checkbox">
-                        @Html.CheckBoxFor(model => model.newProfileContact.isPublicProfile)
-                        @Html.ValidationMessageFor(model => model.newProfileContact.isPublicProfile, "", new { @class = "text-danger" })
-                    </div>
-
-                </div>
-
-                <div class="form-group col-md-6 col-sm-6">
-                    @Html.LabelFor(model => model.newProfileContact.isPhonePublic, htmlAttributes: new { @class = "" })
-                    <div class="checkbox">
-                        @Html.CheckBoxFor(model => model.newProfileContact.isPhonePublic)
-                        @Html.ValidationMessageFor(model => model.newProfileContact.isPhonePublic, "", new { @class = "text-danger" })
-                    </div>
-                </div>
-
-                <div class="form-group col-md-6 col-sm-6">
-                    @Html.LabelFor(model => model.newProfileContact.isEmailPublic, htmlAttributes: new { @class = "" })
-                    <div class="checkbox">
-                        @Html.CheckBoxFor(model => model.newProfileContact.isEmailPublic)
-                        @Html.ValidationMessageFor(model => model.newProfileContact.isEmailPublic, "", new { @class = "text-danger" })
-                    </div>
-                </div>
+              
 
                 @*<div class="form-group">
                         @Html.LabelFor(model => model.newProfileContact.viewCounter, htmlAttributes: new { @class = "control-label col-md-2" })
@@ -143,69 +119,94 @@
 
                 <div class="form-group col-md-6 col-sm-6">
                     @Html.LabelFor(model => model.newProfileContact.phoneType, htmlAttributes: new { @class = "" })
-                    @Html.TextBoxFor(model => model.newProfileContact.phoneType,  new { @class = "form-control input-sm"  })
+                    @Html.TextBoxFor(model => model.newProfileContact.phoneType, new { @class = "form-control input-sm" })
                     @*@Html.ValidationMessageFor(model => model.newProfileContact.phoneType, "", new { @class = "text-danger" })*@
                 </div>
 
-                @*<div class="form-group">
-                        @Html.LabelFor(model => model.newProfileContact.userId, htmlAttributes: new { @class = "control-label col-md-2" })
-                        <div class="col-md-10">
-                            @Html.TextBoxFor(model => model.newProfileContact.userId,  new { @class = "form-control"  })
-                            @Html.ValidationMessageFor(model => model.newProfileContact.userId, "", new { @class = "text-danger" })
-                        </div>
-                    </div>*@
+             
 
                 <div class="form-group col-md-6 col-sm-6">
-                    @Html.LabelFor(model => model.newProfileContact.countryCode, htmlAttributes: new { @class = "" })
-                    @Html.TextBoxFor(model => model.newProfileContact.countryCode,  new { @class = "form-control input-sm"  })
-                    @Html.ValidationMessageFor(model => model.newProfileContact.countryCode, "", new { @class = "text-danger" })
-                </div>
-                <div class="form-group col-md-6 col-sm-6">
                     @Html.LabelFor(model => model.newProfileContact.gender, htmlAttributes: new { @class = "" })
-                    @Html.TextBoxFor(model => model.newProfileContact.gender,  new { @class = "form-control input-sm"  })
+                    @Html.RadioButtonFor(model => Model.newProfileContact.gender, "Male")
+                    @Html.Label("Male")
+                    @Html.RadioButtonFor(model => Model.newProfileContact.gender, "Female")
+                    @Html.Label("Female")
                     @Html.ValidationMessageFor(model => model.newProfileContact.gender, "", new { @class = "text-danger" })
                 </div>
+                <div class="form-group col-md-6 col-sm-6">
+                    @Html.LabelFor(model => model.newProfileContact.countryCode, htmlAttributes: new { @class = "" })
+                    @Html.TextBoxFor(model => model.newProfileContact.countryCode, new { @class = "form-control input-sm" })
+                    @Html.ValidationMessageFor(model => model.newProfileContact.countryCode, "", new { @class = "text-danger" })
+                </div>
+       
 
                 <div class="form-group col-md-6 col-sm-6">
                     @Html.LabelFor(model => model.newProfileContact.birthDate, htmlAttributes: new { @class = "" })
-                    @Html.TextBoxFor(model => model.newProfileContact.birthDate,  new { @class = "form-control input-sm"  })
+                    @Html.TextBoxFor(model => model.newProfileContact.birthDate, new { @class = "form-control input-sm" })
                     @Html.ValidationMessageFor(model => model.newProfileContact.birthDate, "", new { @class = "text-danger" })
                 </div>
 
                 <div class="form-group col-md-6 col-sm-6">
                     @Html.LabelFor(model => model.newProfileContact.addressLine1, htmlAttributes: new { @class = "" })
-                    @Html.TextBoxFor(model => model.newProfileContact.addressLine1,  new { @class = "form-control input-sm"  })
+                    @Html.TextBoxFor(model => model.newProfileContact.addressLine1, new { @class = "form-control input-sm" })
                     @Html.ValidationMessageFor(model => model.newProfileContact.addressLine1, "", new { @class = "text-danger" })
                 </div>
 
                 <div class="form-group col-md-6 col-sm-6">
                     @Html.LabelFor(model => model.newProfileContact.addressLine2, htmlAttributes: new { @class = "" })
-                    @Html.TextBoxFor(model => model.newProfileContact.addressLine2,  new { @class = "form-control input-sm"  })
+                    @Html.TextBoxFor(model => model.newProfileContact.addressLine2, new { @class = "form-control input-sm" })
                     @Html.ValidationMessageFor(model => model.newProfileContact.addressLine2, "", new { @class = "text-danger" })
                 </div>
 
                 <div class="form-group col-md-6 col-sm-6">
                     @Html.LabelFor(model => model.newProfileContact.addressCity, htmlAttributes: new { @class = "" })
-                    @Html.TextBoxFor(model => model.newProfileContact.addressCity,  new { @class = "form-control input-sm"  })
+                    @Html.TextBoxFor(model => model.newProfileContact.addressCity, new { @class = "form-control input-sm" })
                     @Html.ValidationMessageFor(model => model.newProfileContact.addressCity, "", new { @class = "text-danger" })
                 </div>
 
                 <div class="form-group col-md-6 col-sm-6">
                     @Html.LabelFor(model => model.newProfileContact.addressCountry, htmlAttributes: new { @class = "" })
-                    @Html.TextBoxFor(model => model.newProfileContact.addressCountry,  new { @class = "form-control input-sm"  })
+                    @Html.TextBoxFor(model => model.newProfileContact.addressCountry, new { @class = "form-control input-sm" })
                     @Html.ValidationMessageFor(model => model.newProfileContact.addressCountry, "", new { @class = "text-danger" })
                 </div>
 
                 <div class="form-group col-md-6 col-sm-6">
                     @Html.LabelFor(model => model.newProfileContact.addressState, htmlAttributes: new { @class = "" })
-                    @Html.TextBoxFor(model => model.newProfileContact.addressState,  new { @class = "form-control  input-sm"  })
+                    @Html.TextBoxFor(model => model.newProfileContact.addressState, new { @class = "form-control  input-sm" })
                     @Html.ValidationMessageFor(model => model.newProfileContact.addressState, "", new { @class = "text-danger" })
                 </div>
 
-                <div class="form-group col-md-6 col-sm-6">
+                <div class="form-group col-md-12 col-sm-12">
                     @Html.LabelFor(model => model.newProfileContact.addressZip, htmlAttributes: new { @class = "" })
-                    @Html.TextBoxFor(model => model.newProfileContact.addressZip,  new { @class = "form-control input-sm"  })
+                    @Html.TextBoxFor(model => model.newProfileContact.addressZip, new { @class = "form-control input-sm" })
                     @Html.ValidationMessageFor(model => model.newProfileContact.addressZip, "", new { @class = "text-danger" })
+                </div>
+
+                <div class="form-group col-md-6 col-sm-6">
+                    <div class="checkbox">
+                        @Html.CheckBoxFor(model => model.newProfileContact.isPublicProfile)
+                        @Html.LabelFor(model => model.newProfileContact.isPublicProfile, htmlAttributes: new { @class = "" })
+                        @Html.ValidationMessageFor(model => model.newProfileContact.isPublicProfile, "", new { @class = "text-danger" })
+                    </div>
+
+                </div>
+
+                <div class="form-group col-md-6 col-sm-6">
+
+                    <div class="checkbox">
+                        @Html.CheckBoxFor(model => model.newProfileContact.isPhonePublic)
+                        @Html.LabelFor(model => model.newProfileContact.isPhonePublic, htmlAttributes: new { @class = "" })
+                        @Html.ValidationMessageFor(model => model.newProfileContact.isPhonePublic, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+
+                <div class="form-group col-md-6 col-sm-6">
+                    <div class="checkbox">
+                        @Html.CheckBoxFor(model => model.newProfileContact.isEmailPublic)
+
+                        @Html.LabelFor(model => model.newProfileContact.isEmailPublic, htmlAttributes: new { @class = "" })
+                        @Html.ValidationMessageFor(model => model.newProfileContact.isEmailPublic, "", new { @class = "text-danger" })
+                    </div>
                 </div>
                 <div class="form-group col-md-6 col-sm-6">
                     <div class="col-md-offset-2 col-md-10">
