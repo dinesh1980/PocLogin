@@ -11,34 +11,20 @@
 {
     @Html.AntiForgeryToken()
 
-    <div class="form-horizontal">
-        <h4>Login</h4>
+    <h4>Login</h4>
         <hr />
         @Html.ValidationSummary(true, "", new { @class = "text-danger" })
 
-        <div class="form-group">
-            @Html.LabelFor(model => model.LoginRequest.userName, htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                @Html.EditorFor(model => model.LoginRequest.userName, new { htmlAttributes = new { @class = "form-control" } })
-                @Html.ValidationMessageFor(model => model.LoginRequest.userName, "", new { @class = "text-danger" })
-            </div>
-        </div>
 
         <div class="form-group">
-            @Html.LabelFor(model => model.LoginRequest.password, htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                @Html.PasswordFor(model => model.LoginRequest.password, new { htmlAttributes = new { @class = "form-control" } })
-                @Html.ValidationMessageFor(model => model.LoginRequest.password, "", new { @class = "text-danger" })
-            </div>
+            <label for="email">Username:</label>
+            @Html.TextBoxFor(m => m.LoginRequest.userName, new { @class = "form-control" })
         </div>
-
         <div class="form-group">
-            <div class="col-md-offset-2 col-md-10">
-                <input type="submit" value="Submit" class="btn btn-default" />
-            </div>
+            <label for="pwd">Password:</label>
+            @Html.PasswordFor(m => m.LoginRequest.password, new { @class = "form-control" })
         </div>
-    </div>
-  
+        <input type="submit" id="btnSubmit" class="btn btn-default" value="Submit" />
 }
 
 @section Scripts {
