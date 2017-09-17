@@ -38,54 +38,7 @@
             </div>
         </div>
     </div>
-    if (Model != null)
-    {
-        <table class="table" style="width:100%">
-            <tr>
-                <td>
-                    @Html.DisplayNameFor(model => model.LoginResponse.userId)
-                    @Html.DisplayFor(model => model.LoginResponse.userId)
-                </td>
-                <td>
-                    @Html.DisplayNameFor(model => model.LoginResponse.token)
-                    @Html.DisplayFor(model => model.LoginResponse.token)
-                </td>
-                <td>
-                    @Html.DisplayNameFor(model => model.LoginResponse.displayName)
-                    @Html.DisplayFor(model => model.LoginResponse.displayName)
-                </td>
-                <td>
-                    @Html.DisplayNameFor(model => model.LoginResponse.isEmailVerified)
-                    @Html.CheckBoxFor(model => model.LoginResponse.isEmailVerified)
-                </td>
-                <td>
-                    @Html.DisplayNameFor(model => model.LoginResponse.isPhoneVerified)
-                    @Html.DisplayFor(model => model.LoginResponse.isPhoneVerified)
-                </td>
-                <td>
-                    @Html.DisplayNameFor(model => model.LoginResponse.isCallVerified)
-                    @Html.CheckBoxFor(model => model.LoginResponse.isCallVerified)
-                </td>
-                <td>
-                    @Html.DisplayNameFor(model => model.LoginResponse.secretAccessKey)
-                    @Html.DisplayFor(model => model.LoginResponse.secretAccessKey)
-                </td>
-                <td>
-                    @Html.DisplayNameFor(model => model.LoginResponse.userName)
-                    @Html.DisplayFor(model => model.LoginResponse.userName)
-                </td>
-                <td>
-                    @Html.DisplayNameFor(model => model.LoginResponse.deviceId)
-                    @Html.DisplayFor(model => model.LoginResponse.deviceId)
-                </td>
-                <td>
-                    @Html.DisplayNameFor(model => model.LoginResponse.isPartner)
-                    @Html.DisplayFor(model => model.LoginResponse.isPartner)
-                </td>
-            </tr>
-        </table>
-    }
-
+  
 }
 
 @section Scripts {

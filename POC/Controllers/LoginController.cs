@@ -48,11 +48,12 @@ namespace POC.Controllers
 
             if (response.StatusCode.ToString() == "OK" && response.Data.userId != null)
             {
+                Session["UserDetails"] = response.Data;
                 ViewBag.LoggedInUserName = response.Data.displayName;
                 LoginRequestResponseViewModel model = new LoginRequestResponseViewModel();
                 model.LoginRequest = login.LoginRequest;
                 model.LoginResponse = response.Data;
-                return View(model);
+                return RedirectToRoute("EditProfile", new { UserId= model.LoginResponse.userId });
             }          
 
             return View();

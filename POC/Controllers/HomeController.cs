@@ -1,4 +1,5 @@
-﻿using POC.common;
+﻿using Newtonsoft.Json;
+using POC.common;
 using POC.Models;
 using RestSharp;
 using System;
@@ -13,39 +14,71 @@ namespace POC.Controllers
     {
         public ActionResult Index()
         {
-            return RedirectToAction("Register");
+            return RedirectToAction("GetProfile");
         }
-        public ActionResult Register()
+
+        //[HttpGet]
+        //public ActionResult GetProfile()
+        //{
+        //    return View();
+        //}
+        [HttpGet]
+        [Route("GetProfile/{UserId}",  Name = "EditProfile")]
+        public ActionResult UpdateProfile(string UserId)
+        {
+            if (!string.IsNullOrEmpty(UserId))
+            {             
+                GetPublicProfileRequest obj = new GetPublicProfileRequest();
+                obj.id = UserId;
+                obj.viewAll = true;
+                var client = new RestClient(CommonUtility.ApirUrl + "PublicPoll/ViewPublicProfile");
+                var request = new RestRequest(Method.POST);
+                request.AddJsonBody(obj);
+                request.AddHeader("content-type", "application/json");
+                IRestResponse<ViewProfileModel> response = client.Execute<ViewProfileModel>(request);
+                ViewProfileModel profile = new Models.ViewProfileModel();
+                if (response.StatusCode.ToString() == "OK")
+                {
+                    // profile = response.Data;
+                    profile = JsonConvert.DeserializeObject<ViewProfileModel>(response.Content);
+                    System.IO.File.WriteAllText(@"D:\ProfileResponse.json", Newtonsoft.Json.JsonConvert.SerializeObject(profile));
+                    if (profile.gender == "M")
+                    {
+                        profile.gender = "Male";
+                    }
+                    if (profile.gender == "F")
+                    {
+                        profile.gender = "Female";
+                    }
+                }
+                return View("UpdateProfile", profile);
+            }
+            else
+            {
+                return View();
+            }
+        }
+        public ActionResult UpdateProfile()
         {
             return View();
         }
         [HttpPost]
-        public ActionResult Register(RegisterRequestViewModel model)
+        public ActionResult UpdateProfile(ViewProfileModel model)
         {
             if (ModelState.IsValid)
             {
-                Newdevice obj = new Newdevice();
-                obj.deviceVersion = Request.Browser.Version;// "59.0.3071.115";
-                obj.browserVersion = Request.Browser.Version;// "59.0.3071.115";
-                obj.browserName = Request.Browser.Browser;// "Chrome";
-                obj.browserUserAgent = Request.UserAgent;// "Mozilla/5.0 (Windows NT 6.3; Win64; x64) AppleWebKit / 537.36(KHTML, like Gecko) Chrome / 59.0.3071.115 Safari / 537.36";
-                obj.snsType = "Web";
-                obj.deviceName = "Win32";
-                obj.devicePlatform = Request.Browser.Platform;// "Windows";
-                obj.snsDeviceId = Guid.NewGuid().ToString();// "d4bc2ea4-1868-469b-a6c3-0f518e4f0218";
-                model.newDevice = obj;
-                               // model.id = Guid.NewGuid().ToString();
-                model.newProfileContact.ownerId = Guid.NewGuid().ToString();
-               // model.newProfileContact.userId =  Guid.NewGuid().ToString();
-                var client = new RestClient(CommonUtility.ApirUrl + "Polls/Registration");
+
+                LoginResponse userdetails = Session["UserDetails"] as LoginResponse;
+                var client = new RestClient(CommonUtility.ApirUrl + "Polls/UpdateProfile");
                 var request = new RestRequest(Method.POST);
-               // request.AddHeader("content-type", "application/json");
-                
+                request.AddHeader("UserId", userdetails.userId);
+                request.AddHeader("token", userdetails.token);
                 request.AddJsonBody(model);
-                //System.IO.File.WriteAllText(@"D:\path1.json", Newtonsoft.Json.JsonConvert.SerializeObject(model));
+                System.IO.File.WriteAllText(@"D:\path1.json", Newtonsoft.Json.JsonConvert.SerializeObject(model));
                 IRestResponse æ = client.Execute(request);
 
             }
+
             return View();
         }
 
