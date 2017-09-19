@@ -24,7 +24,7 @@ namespace POC.Models
         public string password { get; set; }
         public Newdevice newDevice { get; set; }
     }
-
+   
 
     [Serializable]
     public class LoginResponse
@@ -41,4 +41,5 @@ namespace POC.Models
         public string deviceId { get; set; }
         public bool isPartner { get; set; }
     }
+   
 }
