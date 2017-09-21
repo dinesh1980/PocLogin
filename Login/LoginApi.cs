@@ -1,4 +1,5 @@
 ﻿using CommonModels;
+using Newtonsoft.Json;
 using RestSharp;
 using System;
 using System.Collections.Generic;
@@ -13,6 +14,7 @@ namespace Login
     {
         public static LoginResponse PollsLogin(LoginModels login)
         {
+            
             var client = new RestClient(WebConfigurationManager.AppSettings["APiUrl"] + "Polls/Login");
             var request = new RestRequest(Method.POST);
             request.AddHeader("content-type", "application/json");
@@ -26,6 +28,8 @@ namespace Login
             }
             else
             {
+                ErrorDetails errordetail = JsonConvert.DeserializeObject<ErrorDetails>(response.Content);
+                response.Data.Error = (String.IsNullOrEmpty(errordetail.AdditionalInformation) ? "" : errordetail.AdditionalInformation) + (String.IsNullOrEmpty(errordetail.message) ? "" : errordetail.message);
                 return response.Data;
             }
         }

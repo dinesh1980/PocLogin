@@ -1,0 +1,78 @@
+﻿@model UserRegistration.Models.RegistrationResponseModel
+
+@{
+    ViewBag.Title = "Welcome";
+}
+
+<h2>Welcome </h2>
+
+<div>
+    <h2>@Html.Display(Convert.ToString(Session["UserName"]))</h2>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.message)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.message)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.isEmailVerified)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.isEmailVerified)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.isPhoneVerified)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.isPhoneVerified)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.isCallVerified)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.isCallVerified)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.userId)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.userId)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.token)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.token)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.displayName)
+        </dt>
+
+        @*<dd>
+            @Html.DisplayFor(model => model.displayName)
+        </dd>*@
+
+        <dt>
+            @Html.DisplayNameFor(model => model.accessLevel)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.accessLevel)
+        </dd>
+
+    </dl>
+</div>
