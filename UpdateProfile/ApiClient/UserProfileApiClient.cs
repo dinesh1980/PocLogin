@@ -26,7 +26,7 @@ namespace UpdateProfile.ApiClient
             {
                 // profile = response.Data;
                 profile = JsonConvert.DeserializeObject<UserProfileResponse>(response.Content);
-                System.IO.File.WriteAllText(@"D:\ProfileResponse.json", Newtonsoft.Json.JsonConvert.SerializeObject(profile));
+                //System.IO.File.WriteAllText(@"D:\ProfileResponse.json", Newtonsoft.Json.JsonConvert.SerializeObject(profile));
                 if (profile.gender == "M")
                 {
                     profile.gender = "Male";
