@@ -1,0 +1,34 @@
+﻿@model AccountVerification.Models.EmailSendStatusResponse
+@{
+    ViewBag.Title = "Home Page";
+}
+
+
+    <h2>Account Verification</h2>
+
+
+<div class="panel-body">
+
+    @using (Html.BeginForm("SendVerificationEmail", "Home", FormMethod.Post))
+    {
+        @Html.ValidationSummary(false)
+        <div class="col-md-12 inputGroupContainer">
+            <div class="col-md-12 col-sm-12">
+                <div class="form-group col-md-4 col-sm-4">
+
+                    <input type="submit" value=@ViewBag.ButtonText class="btn btn-lg btn-info" />
+
+                </div>
+                @if (Model != null)
+                {
+                    <div class="form-group col-md-4 col-sm-4">
+                        @Html.DisplayFor(model=>model.status)
+                        @Html.DisplayFor(model => model.statusMessage)
+                    </div>
+                }
+            </div>
+        </div>
+
+    }
+</div>
+
