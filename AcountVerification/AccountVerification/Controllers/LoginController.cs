@@ -3,14 +3,17 @@ using CommonModels;
 using Login;
 using System;
 using System.Web.Mvc;
+using System.Web.Security;
 
 namespace POC.Controllers
 {
 
+    [AllowAnonymous]
     public class LoginController : Controller
     {
 
 
+        
         [HttpGet]
         public ActionResult Login()
         {
@@ -20,7 +23,7 @@ namespace POC.Controllers
         [HttpPost]
         public ActionResult Login(Login.LoginModels login)
         {
-             if (ModelState.IsValid)
+            if (ModelState.IsValid)
             {
                 login.deviceId = Guid.NewGuid().ToString();// "d4bc2ea4-1868-469b-a6c3-0f518e4f0218";
                 login.isPartner = false;
@@ -38,9 +41,10 @@ namespace POC.Controllers
                 response = LoginApi.PollsLogin(login);
                 if (response.userId != null)
                 {
+                    FormsAuthentication.Authenticate(login.userName, login.password);
                     CommonUtility.loginDetails = response;
                     Session["username"] = response.displayName;
-                    return RedirectToAction("Index","Home");
+                    return RedirectToAction("Index", "Home");
                 }
                 else
                 {
@@ -52,6 +56,12 @@ namespace POC.Controllers
                 ModelState.AddModelError("CustomError", "Invalid Username/Password !!");
             }
             return View();
+        }
+
+        public ActionResult LoggOff()
+        {
+            CommonUtility.loginDetails = null;
+            return RedirectToAction("Login");
         }
 
     }

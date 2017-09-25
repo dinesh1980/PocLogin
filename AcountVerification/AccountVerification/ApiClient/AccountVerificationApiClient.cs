@@ -1,5 +1,6 @@
 ﻿using AccountVerification.Models;
 using CommonModels;
+using Login;
 using Newtonsoft.Json;
 using RestSharp;
 using System;
@@ -11,45 +12,65 @@ namespace AccountVerification.ApiClient
 {
     public class AccountVerificationApiClient
     {
-        public static object ConfigurationManager { get; private set; }
 
-        public static EmailSendStatusResponse SendEmailVerification(string userid, string usertoken, VerificationType type, string baseApiUrl)
+        public static AccountVerificationResponse SendEmailVerification(IVerificationResponse verificationModel, VerificationType type, string baseApiUrl, string emailAddress = "")
         {
-
-            // var apirUrl=  ConfigurationManager.AppSettings["ApiUrl"].ToString()
+            IRestResponse<AccountVerificationResponse> response = null;
+            LoginResponse loginResponse = CommonUtility.loginDetails;
+            var request = new RestRequest(Method.POST);
+            request.AddHeader("content-type", "application/json");
+            request.AddHeader("version", "1.0");
+            request.AddHeader("userid", loginResponse.userId);
+            request.AddHeader("token", loginResponse.token);
             var client = new RestClient();
             if (type == VerificationType.Email)
             {
                 client.BaseUrl = new Uri(baseApiUrl + "Polls/VerifyEmail");
-                var request = new RestRequest(Method.POST);
-                request.AddHeader("content-type", "application/json");
-                request.AddHeader("version", "1.0");
-                request.AddHeader("userid", userid);
-                request.AddHeader("token", usertoken);
                 request.AddParameter("id", Guid.NewGuid().ToString());
-
-                IRestResponse<EmailSendStatusResponse> response = client.Execute<EmailSendStatusResponse>(request);
-
-
-                if (response.StatusCode.ToString().ToUpper() == "OK")
-                {
-                    return response.Data;
-                }
-                else
-                {
-                    ErrorDetails errordetail = JsonConvert.DeserializeObject<ErrorDetails>(response.Content);
-                    response.Data.Error = errordetail;
-                    return response.Data;
-                }
-              
+                response = client.Execute<AccountVerificationResponse>(request);
             }
-            return new EmailSendStatusResponse();
+            if (type == VerificationType.ResendEmail)
+            {
+                ReSendVerifyEmailModel model = verificationModel as ReSendVerifyEmailModel; 
+                client.BaseUrl = new Uri(baseApiUrl + "Polls/ReSendVerifyEmail");
+                request.AddJsonBody(model);
+                response = client.Execute<AccountVerificationResponse>(request);
+            }
+            if (type == VerificationType.SMS)
+            {
+                SendVerificationCode model = verificationModel as SendVerificationCode;
+                request.AddJsonBody(model);
+                client.BaseUrl = new Uri(baseApiUrl + "Polls/ResendVerifyCode");
+                System.IO.File.WriteAllText(@"D:\SMS.json", Newtonsoft.Json.JsonConvert.SerializeObject(model));
+                response = client.Execute<AccountVerificationResponse>(request);
+            }
+            if (type == VerificationType.Call)
+            {
+                SendVerificationCode model = verificationModel as SendVerificationCode;
+                request.AddJsonBody(model);
+                System.IO.File.WriteAllText(@"D:\Call.json", Newtonsoft.Json.JsonConvert.SerializeObject(model));
+                client.BaseUrl = new Uri(baseApiUrl + "Polls/MakeCall");
+                response = client.Execute<AccountVerificationResponse>(request);
+            }
 
+            if (response.StatusCode.ToString().ToUpper() == "OK")
+            {
+                return response.Data;
+            }
+            else
+            {
+                ErrorDetails errordetail = JsonConvert.DeserializeObject<ErrorDetails>(response.Content);
+                response.Data.Error = errordetail;
+                return response.Data;
+            }
+            return new AccountVerificationResponse();
         }
+
     }
     public enum VerificationType
     {
         Email,
+        ResendEmail,
         SMS,
         Call
     }
