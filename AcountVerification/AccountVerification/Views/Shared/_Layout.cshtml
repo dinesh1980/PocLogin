@@ -30,6 +30,13 @@
                         <li>@Html.ActionLink("Log Out", "LoggOff", "Login", null, new { @class = "pull-right" })</li>
                     </ul>
                 }
+                else
+                {
+
+                    <ul class="nav navbar-nav pull-left">
+                        <li>@Html.ActionLink("Login", "Login", "Login", null, new { @class = "pull-left" })</li>
+                    </ul>
+                }
 
 
             </div>
