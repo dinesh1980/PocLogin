@@ -163,6 +163,7 @@
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Models\AccountVerificationRequestResponse.cs" />
+    <Compile Include="Models\CreateTextPolls\TestPollRequestAndResponse.cs" />
     <Compile Include="Models\Profile\GetPublicProfileRequest.cs" />
     <Compile Include="Models\Profile\UserProfileResponse.cs" />
     <Compile Include="Models\Profile\UserProfileUpdateResponse.cs" />
