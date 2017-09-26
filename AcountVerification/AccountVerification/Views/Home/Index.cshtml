@@ -1,56 +1,19 @@
 ﻿
 @{
-    ViewBag.Title = "Home Page";
+    ViewBag.Title = "Welcome";
+    Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
 
-<h2>Account Verification</h2>
-
-
 <div class="panel-body">
-
-    @*@using (Html.BeginForm("Index", "Home", FormMethod.Post))
+    @if (CommonUtility.loginDetails != null)
     {
-        @Html.ValidationSummary(false)
-        <div class="col-md-12 inputGroupContainer">
-            <div class="col-md-12 col-sm-12">
-                <div class="form-group col-md-4 col-sm-4">
-
-                    <select id="verificationtype" onchange="loadPartial()">
-                        <option value="0">--select a partial view to load--</option>
-                        <option value="Email">Email</option>
-                        <option value="ResendEmail">Resend Email</option>
-                        <option value="SMS">SMS</option>
-                        <option value="Call">Call</option>
-                    </select>
-
-
-
-                </div>
-            </div>
-            <div class="col-md-12 col-sm-12">
-                @if (ViewBag.Response != null)
-                {
-                    { { @ViewBag.Response.status} }
-                    <br />
-                    {
-                        { @ViewBag.Response.statusMessage}
-                    }
-
-                }
-                <div id="partial">
-                    <div id="sd">
-                    </div>
-                </div>
-            </div>
-        </div>
-
+        <ul class="nav nav-pills nav-stacked">
+            <li>@Html.ActionLink("Send Email", "LoadVerificationTypeView", "Home", new { type = "Email" }, null)</li>
+            <li>@Html.ActionLink("Resend Email", "LoadVerificationTypeView", "Home", new { type = "ResendEmail" }, null)</li>
+            <li>@Html.ActionLink("SMS", "LoadVerificationTypeView", "Home", new { type = "SMS" }, null)</li>
+            <li>@Html.ActionLink("Call", "LoadVerificationTypeView", "Home", new { type = "Call" }, null)</li>
+            <li>@Html.ActionLink("Update Profile", "GetProfile", "Profile", new { UserId = CommonUtility.loginDetails.userId }, null)</li>
+        </ul>
     }
-    <script type="text/javascript">
-        function loadPartial() {
-            var type = $("#verificationtype").val();
-            alert(name);
-            $("#partial").load('/Home/LoadVerificationTypeView/?type=' + type);
-        }
-    </script>*@
 </div>

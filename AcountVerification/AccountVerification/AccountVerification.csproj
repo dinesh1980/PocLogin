@@ -148,7 +148,9 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="ApiClient\AccountRegistrationApiClient.cs" />
     <Compile Include="ApiClient\AccountVerificationApiClient.cs" />
+    <Compile Include="ApiClient\UserProfileApiClient.cs" />
     <Compile Include="App_Start\BundleConfig.cs" />
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
@@ -156,10 +158,16 @@
     <Compile Include="Controllers\BaseController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\LoginController.cs" />
+    <Compile Include="Controllers\ProfileController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Models\AccountVerificationRequestResponse.cs" />
+    <Compile Include="Models\Profile\GetPublicProfileRequest.cs" />
+    <Compile Include="Models\Profile\UserProfileResponse.cs" />
+    <Compile Include="Models\Profile\UserProfileUpdateResponse.cs" />
+    <Compile Include="Models\UserRegistration\RegisterRequestViewModel.cs" />
+    <Compile Include="Models\UserRegistration\RegistrationResponseModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -204,6 +212,8 @@
     <Content Include="Views\Home\ResendEmailVerification.cshtml" />
     <Content Include="Views\Home\ResendVerificationCodeViaSMS.cshtml" />
     <Content Include="Views\Home\ResendVerificationCodeViaCall.cshtml" />
+    <Content Include="Views\Profile\UpdateProfile.cshtml" />
+    <Content Include="Views\Login\Register.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

@@ -20,22 +20,18 @@
             </div>
             <div class="navbar-collapse collapse">
 
-                <ul class="nav navbar-nav pull-right">
-                    @if (CommonUtility.loginDetails != null)
-                    {
-                        <li>@Html.ActionLink("Log Out", "LoggOff", "Login", null, new { @class = "pull-right" })</li>
-                    }
-                </ul>
+
                 @if (CommonUtility.loginDetails != null)
                 {
-                    <ul class="nav navbar-nav">
-                        <li>@Html.ActionLink("Send Email", "LoadVerificationTypeView", "Home", new { type = "Email" }, null)</li>
-                        <li>@Html.ActionLink("Resend Email", "LoadVerificationTypeView", "Home", new { type = "ResendEmail" }, null)</li>
-                        <li>@Html.ActionLink("SMS", "LoadVerificationTypeView", "Home", new { type = "SMS" }, null)</li>
-                        <li>@Html.ActionLink("Call", "LoadVerificationTypeView", "Home", new { type = "Call" }, null)</li>
-                        <li>@Html.ActionLink("Update Profile", "GetProfile", "Profile", new { UserId = CommonUtility.loginDetails.userId }, null)</li>
+                    <ul class="nav navbar-nav pull-left">
+                        <li>@Html.ActionLink("Main Menu", "Index", "Home", null, new { @class = "pull-left" })</li>
+                    </ul>
+                    <ul class="nav navbar-nav pull-right">
+                        <li>@Html.ActionLink("Log Out", "LoggOff", "Login", null, new { @class = "pull-right" })</li>
                     </ul>
                 }
+
+
             </div>
         </div>
     </div>

@@ -10,7 +10,7 @@ namespace AccountVerification.Controllers
     {
         public ActionResult Index()
         {
-            return RedirectToAction("LoadVerificationTypeView", new { type = "Email" });
+            return View();
         }
 
 
