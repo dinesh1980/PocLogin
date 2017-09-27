@@ -59,7 +59,7 @@ namespace AccountVerification.Controllers
 
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult EmailVerification(AccountVerificationResponse requstResponse)
+        public ActionResult EmailVerification(GeneralApiResponse requstResponse)
         {
             requstResponse = AccountVerificationApiClient.SendEmailVerification(null, VerificationType.Email, CommonUtility.ApirUrl);
             ViewBag.Response = requstResponse;

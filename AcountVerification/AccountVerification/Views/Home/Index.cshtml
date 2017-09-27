@@ -14,6 +14,7 @@
             <li>@Html.ActionLink("SMS", "LoadVerificationTypeView", "Home", new { type = "SMS" }, null)</li>
             <li>@Html.ActionLink("Call", "LoadVerificationTypeView", "Home", new { type = "Call" }, null)</li>
             <li>@Html.ActionLink("Update Profile", "GetProfile", "Profile", new { UserId = CommonUtility.loginDetails.userId }, null)</li>
+            <li>@Html.ActionLink("Create Text Poll", "CreateTextPoll", "TextPoll", new { UserId = CommonUtility.loginDetails.userId }, null)</li>
         </ul>
     }
 </div>

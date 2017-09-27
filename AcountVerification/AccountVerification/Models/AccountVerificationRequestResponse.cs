@@ -22,10 +22,10 @@ namespace AccountVerification.Models
         [Display(Name = "Email Address")]
         [MinLength(4, ErrorMessage = "Email is too short"), MaxLength(50, ErrorMessage = "Email is too long.")]
         public string EmailAddress { get; set; }
-        public AccountVerificationResponse response { get; set; }
+        public GeneralApiResponse response { get; set; }
     }
 
-    public class AccountVerificationResponse: IVerificationResponse
+    public class GeneralApiResponse: IVerificationResponse
     {
         public string status { get; set; }
         public string statusMessage { get; set; }
@@ -38,7 +38,7 @@ namespace AccountVerification.Models
         [MinLength(4, ErrorMessage = "User name is too short"), MaxLength(50, ErrorMessage = "User Name is too long.")]
         [Display(Name = "User Name")]
         public string userName { get; set; }
-        public AccountVerificationResponse response { get; set; }
+        public GeneralApiResponse response { get; set; }
     }
 
     public interface IVerificationResponse

@@ -150,6 +150,7 @@
   <ItemGroup>
     <Compile Include="ApiClient\AccountRegistrationApiClient.cs" />
     <Compile Include="ApiClient\AccountVerificationApiClient.cs" />
+    <Compile Include="ApiClient\TextPollApiClient.cs" />
     <Compile Include="ApiClient\UserProfileApiClient.cs" />
     <Compile Include="App_Start\BundleConfig.cs" />
     <Compile Include="App_Start\FilterConfig.cs" />
@@ -159,11 +160,13 @@
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\LoginController.cs" />
     <Compile Include="Controllers\ProfileController.cs" />
+    <Compile Include="Controllers\TextPollController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Models\AccountVerificationRequestResponse.cs" />
     <Compile Include="Models\CreateTextPolls\TestPollRequestAndResponse.cs" />
+    <Compile Include="Models\GetCategoryResponse.cs" />
     <Compile Include="Models\Profile\GetPublicProfileRequest.cs" />
     <Compile Include="Models\Profile\UserProfileResponse.cs" />
     <Compile Include="Models\Profile\UserProfileUpdateResponse.cs" />
@@ -215,6 +218,7 @@
     <Content Include="Views\Home\ResendVerificationCodeViaCall.cshtml" />
     <Content Include="Views\Profile\UpdateProfile.cshtml" />
     <Content Include="Views\Login\Register.cshtml" />
+    <Content Include="Views\TextPoll\CreateTextPoll.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

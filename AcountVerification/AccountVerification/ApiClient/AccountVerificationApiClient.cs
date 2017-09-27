@@ -13,9 +13,9 @@ namespace AccountVerification.ApiClient
     public class AccountVerificationApiClient
     {
 
-        public static AccountVerificationResponse SendEmailVerification(IVerificationResponse verificationModel, VerificationType type, string baseApiUrl, string emailAddress = "")
+        public static GeneralApiResponse SendEmailVerification(IVerificationResponse verificationModel, VerificationType type, string baseApiUrl, string emailAddress = "")
         {
-            IRestResponse<AccountVerificationResponse> response = null;
+            IRestResponse<GeneralApiResponse> response = null;
             LoginResponse loginResponse = CommonUtility.loginDetails;
             var request = new RestRequest(Method.POST);
             request.AddHeader("content-type", "application/json");
@@ -27,14 +27,14 @@ namespace AccountVerification.ApiClient
             {
                 client.BaseUrl = new Uri(baseApiUrl + "Polls/VerifyEmail");
                 request.AddParameter("id", Guid.NewGuid().ToString());
-                response = client.Execute<AccountVerificationResponse>(request);
+                response = client.Execute<GeneralApiResponse>(request);
             }
             if (type == VerificationType.ResendEmail)
             {
                 ReSendVerifyEmailModel model = verificationModel as ReSendVerifyEmailModel; 
                 client.BaseUrl = new Uri(baseApiUrl + "Polls/ReSendVerifyEmail");
                 request.AddJsonBody(model);
-                response = client.Execute<AccountVerificationResponse>(request);
+                response = client.Execute<GeneralApiResponse>(request);
             }
             if (type == VerificationType.SMS)
             {
@@ -42,7 +42,7 @@ namespace AccountVerification.ApiClient
                 request.AddJsonBody(model);
                 client.BaseUrl = new Uri(baseApiUrl + "Polls/ResendVerifyCode");
                 System.IO.File.WriteAllText(@"D:\SMS.json", Newtonsoft.Json.JsonConvert.SerializeObject(model));
-                response = client.Execute<AccountVerificationResponse>(request);
+                response = client.Execute<GeneralApiResponse>(request);
             }
             if (type == VerificationType.Call)
             {
@@ -50,7 +50,7 @@ namespace AccountVerification.ApiClient
                 request.AddJsonBody(model);
                 System.IO.File.WriteAllText(@"D:\Call.json", Newtonsoft.Json.JsonConvert.SerializeObject(model));
                 client.BaseUrl = new Uri(baseApiUrl + "Polls/MakeCall");
-                response = client.Execute<AccountVerificationResponse>(request);
+                response = client.Execute<GeneralApiResponse>(request);
             }
 
             if (response.StatusCode.ToString().ToUpper() == "OK")
@@ -63,7 +63,7 @@ namespace AccountVerification.ApiClient
                 response.Data.Error = errordetail;
                 return response.Data;
             }
-            return new AccountVerificationResponse();
+            return new GeneralApiResponse();
         }
 
     }
