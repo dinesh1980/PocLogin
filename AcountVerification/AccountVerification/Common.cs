@@ -1,4 +1,6 @@
-﻿using Login;
+﻿using AccountVerification.ApiClient;
+using AccountVerification.Models;
+using Login;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -13,6 +15,8 @@ namespace AccountVerification
         public static string FullImageBaseUrl { get; set; }
         public static string ThumbnailBaseUrl { get; set; }
         public static LoginResponse loginDetails { get; set; }
+        public static List<GetCategoriesResponse> categories { get; set; }
+        public static List<GetAllFilterbyCategoryResponse> filters { get; set; }
     }
 
     public static class ExtensionMethods

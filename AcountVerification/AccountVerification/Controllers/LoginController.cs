@@ -46,6 +46,8 @@ namespace AccountVerification.Controllers
                     FormsAuthentication.Authenticate(login.userName, login.password);
                     CommonUtility.loginDetails = response;
                     Session["username"] = response.displayName;
+                    CommonUtility.categories = TextPollApiClient.GetCategoryResponse();
+                    CommonUtility.filters = TextPollApiClient.GetAllFilterCategories();
                     return RedirectToAction("Index", "Home");
                 }
                 else

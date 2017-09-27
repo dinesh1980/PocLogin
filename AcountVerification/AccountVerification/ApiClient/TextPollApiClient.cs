@@ -51,7 +51,7 @@ namespace AccountVerification.ApiClient
         {
             LoginResponse loginRespone = CommonUtility.loginDetails;
             var client = new RestClient(CommonUtility.ApirUrl + "Polls/GetAllFilterCategories");
-            var request = new RestRequest(Method.GET);
+            var request = new RestRequest(Method.POST);
             request.AddHeader("content-type", "application/json");
             request.AddHeader("userid", loginRespone.userId);
             request.AddHeader("token", loginRespone.token);
@@ -68,7 +68,7 @@ namespace AccountVerification.ApiClient
                
         }
 
-        public static List<GetCategoriesResponse> GetAllFilterbyCategoryResponse()
+        public static List<GetCategoriesResponse> GetCategoryResponse()
         {
             LoginResponse loginRespone = CommonUtility.loginDetails;
             var client_Categories = new RestClient(CommonUtility.ApirUrl + "Polls/GetCategories");
