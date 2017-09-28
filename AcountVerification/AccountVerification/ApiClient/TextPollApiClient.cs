@@ -46,6 +46,39 @@ namespace AccountVerification.ApiClient
             }
 
         }
+        public static CreateBestTextPoll CreateBestTextPoll(CreateBestTextPoll requestObj)
+        {
+
+            IRestResponse<GeneralApiResponse> response = null;
+            LoginResponse loginResponse = CommonUtility.loginDetails;
+            var request = new RestRequest(Method.POST);
+            request.AddHeader("content-type", "application/json");
+            request.AddHeader("version", "1.0");
+            request.AddHeader("userid", loginResponse.userId);
+            request.AddHeader("token", loginResponse.token);
+            request.AddJsonBody(requestObj);
+            var client = new RestClient();
+            client.BaseUrl = new Uri(CommonUtility.ApirUrl + "Polls/CreateBestTextPoll");
+            System.IO.File.WriteAllText(@"D:\BestTextPollReq.json", Newtonsoft.Json.JsonConvert.SerializeObject(requestObj));
+            response = client.Execute<GeneralApiResponse>(request);
+
+            System.IO.File.WriteAllText(@"D:\BestTextPollResponse.json", Newtonsoft.Json.JsonConvert.SerializeObject(response.Content));
+
+            if (response.StatusCode.ToString().ToUpper() == "OK")
+            {
+                requestObj.Response = response.Data;
+                return requestObj;
+            }
+            else
+            {
+                ErrorDetails errordetail = JsonConvert.DeserializeObject<ErrorDetails>(response.Content);
+                response.Data.Error = errordetail;
+                requestObj.Response = new GeneralApiResponse();
+                requestObj.Response.Error = errordetail;
+                return requestObj;
+            }
+
+        }
 
         public static List<GetAllFilterbyCategoryResponse> GetAllFilterCategories()
         {
