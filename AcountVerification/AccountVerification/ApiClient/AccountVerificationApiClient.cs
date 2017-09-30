@@ -41,14 +41,14 @@ namespace AccountVerification.ApiClient
                 SendVerificationCode model = verificationModel as SendVerificationCode;
                 request.AddJsonBody(model);
                 client.BaseUrl = new Uri(baseApiUrl + "Polls/ResendVerifyCode");
-                System.IO.File.WriteAllText(@"D:\SMS.json", Newtonsoft.Json.JsonConvert.SerializeObject(model));
+               // System.IO.File.WriteAllText(@"D:\SMS.json", Newtonsoft.Json.JsonConvert.SerializeObject(model));
                 response = client.Execute<GeneralApiResponse>(request);
             }
             if (type == VerificationType.Call)
             {
                 SendVerificationCode model = verificationModel as SendVerificationCode;
                 request.AddJsonBody(model);
-                System.IO.File.WriteAllText(@"D:\Call.json", Newtonsoft.Json.JsonConvert.SerializeObject(model));
+              //  System.IO.File.WriteAllText(@"D:\Call.json", Newtonsoft.Json.JsonConvert.SerializeObject(model));
                 client.BaseUrl = new Uri(baseApiUrl + "Polls/MakeCall");
                 response = client.Execute<GeneralApiResponse>(request);
             }

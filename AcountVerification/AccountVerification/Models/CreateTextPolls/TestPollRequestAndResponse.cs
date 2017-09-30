@@ -7,6 +7,21 @@ using System.Web.Mvc;
 
 namespace AccountVerification.Models
 {
+    public class CreateSingleImagePollRequest : CreateBestTextPoll
+    {
+        [Required]
+        [Display(Name = "First Image Path")]
+        public string firstImagePath { get; set; }
+    }
+    public class CreateBestTextPoll : CreateTextPollRequest
+    {
+        [Display(Name = "First Option")]
+        [Required]
+        public string firstOption { get; set; }
+        [Display(Name = "Second Option")]
+        [Required]
+        public string secondOption { get; set; }
+    }
 
     public class CreateTextPollRequest
     {

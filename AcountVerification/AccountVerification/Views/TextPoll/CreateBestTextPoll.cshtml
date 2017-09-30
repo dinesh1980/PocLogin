@@ -90,7 +90,7 @@
         <div class="form-group">
             @Html.LabelFor(model => model.pollTypeId, htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
-                @Html.EnumDropDownListFor(model => model.pollTypeId, PollType.bestText.ToString() ,new { htmlAttributes = new { @class = "form-control input-sm" } })
+                @Html.EnumDropDownListFor(model => model.pollTypeId, PollType.bestText.ToString(), new { htmlAttributes = new { @class = "form-control input-sm" } })
                 @Html.ValidationMessageFor(model => model.pollTypeId, "", new { @class = "text-danger" })
             </div>
         </div>
@@ -136,13 +136,13 @@
                 </div>
             </div>*@
 
-        @*<div class="form-group">
-                @Html.LabelFor(model => model.filterMainCategory, htmlAttributes: new { @class = "control-label col-md-2" })
-                <div class="col-md-10">
-                    @Html.EditorFor(model => model.filterMainCategory, new { htmlAttributes = new { @class = "form-control input-sm" } })
-                    @Html.ValidationMessageFor(model => model.filterMainCategory, "", new { @class = "text-danger" })
-                </div>
-            </div>*@
+        <div class="form-group">
+            @Html.LabelFor(model => model.filterMainCategory, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.filterMainCategory, new { htmlAttributes = new { @class = "form-control input-sm" } })
+                @Html.ValidationMessageFor(model => model.filterMainCategory, "", new { @class = "text-danger" })
+            </div>
+        </div>
 
         <div class="form-group">
             @Html.LabelFor(model => model.pUserName, htmlAttributes: new { @class = "control-label col-md-2" })
@@ -216,13 +216,13 @@
             </div>
 
         </div>
-        @*<div class="form-group col-md-6 col-sm-6">
-                <div class="checkbox">
-                    @Html.LabelFor(model => model.isCompanyPoll)
-                    @Html.CheckBoxFor(model => model.isCompanyPoll)
-                    @Html.ValidationMessageFor(model => model.isCompanyPoll, "", new { @class = "text-danger" })
-                </div>
-            </div>*@
+        <div class="form-group col-md-6 col-sm-6">
+            <div class="checkbox">
+                @Html.LabelFor(model => model.isCompanyPoll)
+                @Html.CheckBoxFor(model => model.isCompanyPoll)
+                @Html.ValidationMessageFor(model => model.isCompanyPoll, "", new { @class = "text-danger" })
+            </div>
+        </div>
         <div class="form-group col-md-6 col-sm-6">
             <div class="checkbox">
                 @Html.LabelFor(model => model.isFilterOption)
@@ -246,5 +246,17 @@
             </div>
         </div>
     </div>
+    <script>
+        jQuery(function () {
+            jQuery("#isFilterOption").click(function () {
+                if (jQuery(this).is(':checked')) {
+                    jQuery("#filterMainCategory").show();
+                }
+                else {
+                    jQuery("#filterMainCategory").hide();
+                }
+            });
+        });
+    </script>
 }
 
