@@ -105,7 +105,7 @@ namespace AccountVerification.Controllers
 
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult CreateBestImagePoll(CreateSingleImagePollRequest model)
+        public ActionResult CreateBestImagePoll(BestImagePoll model)
         {
             CreateViewBagPropertyForCategory();
 
@@ -119,7 +119,7 @@ namespace AccountVerification.Controllers
                 model.expirationDate = expiryDate;
                 //model.filterNameValue = new Filternamevalue[1];
                 //model.filterNameValue[0] = new Filternamevalue { filterName = "Department", filterValue = "Department" };
-                model = TextPollApiClient.CreateSingleImagePoll(model);
+                model = TextPollApiClient.CreateBestImagePoll(model);
                 return View(model);
             }
             return View();

@@ -19,6 +19,23 @@ namespace AccountVerification.Controllers
         {
             return RedirectToAction("GetProfile");
         }
+
+        public ActionResult ViewProfile(string userId)
+        {
+            if (!string.IsNullOrEmpty(userId))
+            {
+                UserProfileResponse userprofile = UserProfileApiClient.GetUserProfile(userId);
+
+                return View(userprofile);
+            }
+
+            return View();
+
+
+
+        }
+
+
         [HttpGet]
         [Route("GetProfile/{UserId}", Name = "EditProfile")]
         public ActionResult GetProfile(string UserId)
@@ -26,7 +43,7 @@ namespace AccountVerification.Controllers
             if (!string.IsNullOrEmpty(UserId))
             {
                 UserProfileResponse userprofile = UserProfileApiClient.GetUserProfile(UserId);
-                
+
                 return View("UpdateProfile", userprofile);
             }
             else
@@ -56,7 +73,7 @@ namespace AccountVerification.Controllers
                     return View(updatedProfile);
                 else
                 {
-                   ModelState.AddModelError("CustomError", error);
+                    ModelState.AddModelError("CustomError", error);
                 }
             }
 
