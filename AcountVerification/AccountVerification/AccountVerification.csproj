@@ -221,6 +221,7 @@
     <Content Include="Views\TextPoll\CreateTextPoll.cshtml" />
     <Content Include="Views\TextPoll\CreateBestTextPoll.cshtml" />
     <Content Include="Views\TextPoll\CreateSingleImagePoll.cshtml" />
+    <Content Include="Views\TextPoll\CreateBestImagePoll.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
