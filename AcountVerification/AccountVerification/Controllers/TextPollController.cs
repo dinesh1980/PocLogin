@@ -1,5 +1,6 @@
 ﻿using AccountVerification.ApiClient;
 using AccountVerification.Models;
+using AccountVerification.Models.UploadFile;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -68,6 +69,7 @@ namespace AccountVerification.Controllers
 
         public ActionResult CreateSingleImagePoll()
         {
+            FileObject obj= UploadFileApi.GetUploadFile();
             CreateViewBagPropertyForCategory();
             return View();
         }

@@ -151,6 +151,7 @@
     <Compile Include="ApiClient\AccountRegistrationApiClient.cs" />
     <Compile Include="ApiClient\AccountVerificationApiClient.cs" />
     <Compile Include="ApiClient\TextPollApiClient.cs" />
+    <Compile Include="ApiClient\UploadFileApi.cs" />
     <Compile Include="ApiClient\UserProfileApiClient.cs" />
     <Compile Include="App_Start\BundleConfig.cs" />
     <Compile Include="App_Start\FilterConfig.cs" />
@@ -170,6 +171,7 @@
     <Compile Include="Models\Profile\GetPublicProfileRequest.cs" />
     <Compile Include="Models\Profile\UserProfileResponse.cs" />
     <Compile Include="Models\Profile\UserProfileUpdateResponse.cs" />
+    <Compile Include="Models\UploadFile\UploadFile.cs" />
     <Compile Include="Models\UserRegistration\RegisterRequestViewModel.cs" />
     <Compile Include="Models\UserRegistration\RegistrationResponseModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
