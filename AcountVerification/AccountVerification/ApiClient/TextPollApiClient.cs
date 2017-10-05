@@ -109,6 +109,7 @@ namespace AccountVerification.ApiClient
                 ErrorDetails errordetail = JsonConvert.DeserializeObject<ErrorDetails>(response.Content);
                 response.Data.Error = errordetail;
                 requestObj.Response = new GeneralApiResponse();
+                requestObj.Response.statusMessage=(String.IsNullOrEmpty(errordetail.AdditionalInformation) ? "" : errordetail.AdditionalInformation) + (String.IsNullOrEmpty(errordetail.message) ? "" : errordetail.message);
                 requestObj.Response.Error = errordetail;
                 return requestObj;
             }
@@ -143,7 +144,7 @@ namespace AccountVerification.ApiClient
                 ErrorDetails errordetail = JsonConvert.DeserializeObject<ErrorDetails>(response.Content);
                 response.Data.Error = errordetail;
                 requestObj.Response = new GeneralApiResponse();
-                requestObj.Response.Error = errordetail;
+                requestObj.Response.statusMessage = (String.IsNullOrEmpty(errordetail.AdditionalInformation) ? "" : errordetail.AdditionalInformation) + (String.IsNullOrEmpty(errordetail.message) ? "" : errordetail.message);
                 return requestObj;
             }
 
