@@ -51,11 +51,13 @@
                 @Html.HiddenFor(model => model.publicPolls, new { @class = "form-control input-sm" })
                 @Html.HiddenFor(model => model.totalPolls, new { @class = "form-control input-sm" })
                 @Html.HiddenFor(model => model.pictureUrl, new { @class = "form-control input-sm" })
-
-                foreach (var kvp in Model.profilePictures)
+                if (Model.profilePictures != null)
                 {
+                    foreach (var kvp in Model.profilePictures)
+                    {
                     @Html.HiddenFor(m => m.profilePictures[kvp.Key]);
                     @Html.HiddenFor(m => m.profilePictures[kvp.Key]);
+                    }
                 }
                 <div class="col-md-12 inputGroupContainer">
                     <div class="col-md-12 col-sm-12">

@@ -20,9 +20,9 @@ namespace AccountVerification.ApiClient
             request.AddHeader("UserId", CommonUtility.loginDetails.userId);
             request.AddHeader("token", CommonUtility.loginDetails.token);
             //request.AddJsonBody(model);
-             System.IO.File.WriteAllText(@"D:\request.json", Newtonsoft.Json.JsonConvert.SerializeObject(request));
+           //  System.IO.File.WriteAllText(@"D:\request.json", Newtonsoft.Json.JsonConvert.SerializeObject(request));
             IRestResponse<FileObject> updatedProfileResponse = client.Execute<FileObject>(request);
-            System.IO.File.WriteAllText(@"D:\response.json", Newtonsoft.Json.JsonConvert.SerializeObject(updatedProfileResponse.Content));
+          //  System.IO.File.WriteAllText(@"D:\response.json", Newtonsoft.Json.JsonConvert.SerializeObject(updatedProfileResponse.Content));
             if (updatedProfileResponse.StatusCode.ToString().ToUpper() == "OK")
             {
                 return updatedProfileResponse.Data;

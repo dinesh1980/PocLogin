@@ -26,10 +26,10 @@ namespace AccountVerification.ApiClient
             request.AddJsonBody(requestObj);
             var client = new RestClient();
             client.BaseUrl = new Uri(CommonUtility.ApirUrl + "Polls/CreateTextPoll");
-            System.IO.File.WriteAllText(@"D:\TextPollReq.json", Newtonsoft.Json.JsonConvert.SerializeObject(requestObj));
+           // System.IO.File.WriteAllText(@"D:\TextPollReq.json", Newtonsoft.Json.JsonConvert.SerializeObject(requestObj));
             response = client.Execute<GeneralApiResponse>(request);
 
-            System.IO.File.WriteAllText(@"D:\TetPollResponse.json", Newtonsoft.Json.JsonConvert.SerializeObject(response.Content));
+            //System.IO.File.WriteAllText(@"D:\TetPollResponse.json", Newtonsoft.Json.JsonConvert.SerializeObject(response.Content));
 
             if (response.StatusCode.ToString().ToUpper() == "OK")
             {
@@ -59,10 +59,10 @@ namespace AccountVerification.ApiClient
             request.AddJsonBody(requestObj);
             var client = new RestClient();
             client.BaseUrl = new Uri(CommonUtility.ApirUrl + "Polls/CreateBestTextPoll");
-            System.IO.File.WriteAllText(@"D:\BestTextPollReq.json", Newtonsoft.Json.JsonConvert.SerializeObject(requestObj));
+           // System.IO.File.WriteAllText(@"D:\BestTextPollReq.json", Newtonsoft.Json.JsonConvert.SerializeObject(requestObj));
             response = client.Execute<GeneralApiResponse>(request);
 
-            System.IO.File.WriteAllText(@"D:\BestTextPollResponse.json", Newtonsoft.Json.JsonConvert.SerializeObject(response.Content));
+            //System.IO.File.WriteAllText(@"D:\BestTextPollResponse.json", Newtonsoft.Json.JsonConvert.SerializeObject(response.Content));
 
             if (response.StatusCode.ToString().ToUpper() == "OK")
             {
@@ -94,10 +94,10 @@ namespace AccountVerification.ApiClient
             request.AddJsonBody(requestObj);
             var client = new RestClient();
             client.BaseUrl = new Uri(CommonUtility.ApirUrl + "Polls/CreateSingleImagePoll");
-            System.IO.File.WriteAllText(@"D:\BestTextPollReq.json", Newtonsoft.Json.JsonConvert.SerializeObject(requestObj));
+           // System.IO.File.WriteAllText(@"D:\BestTextPollReq.json", Newtonsoft.Json.JsonConvert.SerializeObject(requestObj));
             response = client.Execute<GeneralApiResponse>(request);
 
-            System.IO.File.WriteAllText(@"D:\BestTextPollResponse.json", Newtonsoft.Json.JsonConvert.SerializeObject(response.Content));
+          //  System.IO.File.WriteAllText(@"D:\BestTextPollResponse.json", Newtonsoft.Json.JsonConvert.SerializeObject(response.Content));
 
             if (response.StatusCode.ToString().ToUpper() == "OK")
             {
@@ -129,10 +129,10 @@ namespace AccountVerification.ApiClient
             request.AddJsonBody(requestObj);
             var client = new RestClient();
             client.BaseUrl = new Uri(CommonUtility.ApirUrl + "Polls/BestImagePoll");
-            System.IO.File.WriteAllText(@"D:\BestTextPollReq.json", Newtonsoft.Json.JsonConvert.SerializeObject(requestObj));
+           // System.IO.File.WriteAllText(@"D:\BestTextPollReq.json", Newtonsoft.Json.JsonConvert.SerializeObject(requestObj));
             response = client.Execute<GeneralApiResponse>(request);
 
-            System.IO.File.WriteAllText(@"D:\BestTextPollResponse.json", Newtonsoft.Json.JsonConvert.SerializeObject(response.Content));
+           // System.IO.File.WriteAllText(@"D:\BestTextPollResponse.json", Newtonsoft.Json.JsonConvert.SerializeObject(response.Content));
 
             if (response.StatusCode.ToString().ToUpper() == "OK")
             {

@@ -78,7 +78,7 @@
     </Reference>
     <Reference Include="Microsoft.CSharp" />
     <Reference Include="Newtonsoft.Json, Version=10.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
-      <HintPath>..\..\packages\Newtonsoft.Json.10.0.3\lib\net45\Newtonsoft.Json.dll</HintPath>
+      <HintPath>..\..\packages\Newtonsoft.Json.10.0.2\lib\net45\Newtonsoft.Json.dll</HintPath>
       <Private>True</Private>
     </Reference>
     <Reference Include="RestSharp, Version=105.2.3.0, Culture=neutral, processorArchitecture=MSIL">
@@ -166,6 +166,7 @@
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Models\AccountVerificationRequestResponse.cs" />
+    <Compile Include="Models\CreateTextPolls\GetMyPoll.cs" />
     <Compile Include="Models\CreateTextPolls\TestPollRequestAndResponse.cs" />
     <Compile Include="Models\GetCategoryResponse.cs" />
     <Compile Include="Models\Profile\GetPublicProfileRequest.cs" />
@@ -189,6 +190,7 @@
     <Content Include="ApplicationInsights.config">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
+    <None Include="Properties\PublishProfiles\Poc.pubxml" />
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
     <Content Include="Scripts\jquery-1.10.2.js" />
     <Content Include="Scripts\jquery-1.10.2.min.js" />
@@ -201,6 +203,21 @@
     <Content Include="Scripts\respond.js" />
     <Content Include="Scripts\respond.min.js" />
     <Content Include="Scripts\_references.js" />
+    <Content Include="Views\Home\EmailVerification.cshtml" />
+    <Content Include="Views\Home\Index.cshtml" />
+    <Content Include="Views\Home\ResendEmailVerification.cshtml" />
+    <Content Include="Views\Home\ResendVerificationCodeViaCall.cshtml" />
+    <Content Include="Views\Home\ResendVerificationCodeViaSMS.cshtml" />
+    <Content Include="Views\Login\Login.cshtml" />
+    <Content Include="Views\Login\Register.cshtml" />
+    <Content Include="Views\Profile\About.cshtml" />
+    <Content Include="Views\Profile\Contact.cshtml" />
+    <Content Include="Views\Profile\Index.cshtml" />
+    <Content Include="Views\Profile\UpdateProfile.cshtml" />
+    <Content Include="Views\Shared\Error.cshtml" />
+    <Content Include="Views\Shared\_Layout.cshtml" />
+    <Content Include="Views\Web.config" />
+    <Content Include="Views\_ViewStart.cshtml" />
     <Content Include="Web.config" />
     <Content Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
@@ -208,23 +225,11 @@
     <Content Include="Web.Release.config">
       <DependentUpon>Web.config</DependentUpon>
     </Content>
-    <Content Include="Views\Web.config" />
-    <Content Include="Views\_ViewStart.cshtml" />
-    <Content Include="Views\Shared\Error.cshtml" />
-    <Content Include="Views\Shared\_Layout.cshtml" />
-    <Content Include="Views\Home\Index.cshtml" />
-    <Content Include="Views\Login\Login.cshtml" />
-    <Content Include="Views\Home\EmailVerification.cshtml" />
-    <Content Include="Views\Home\ResendEmailVerification.cshtml" />
-    <Content Include="Views\Home\ResendVerificationCodeViaSMS.cshtml" />
-    <Content Include="Views\Home\ResendVerificationCodeViaCall.cshtml" />
-    <Content Include="Views\Profile\UpdateProfile.cshtml" />
-    <Content Include="Views\Login\Register.cshtml" />
-    <Content Include="Views\TextPoll\CreateTextPoll.cshtml" />
+    <Content Include="Views\Profile\ViewProfile.cshtml" />
+    <Content Include="Views\TextPoll\CreateBestImagePoll.cshtml" />
     <Content Include="Views\TextPoll\CreateBestTextPoll.cshtml" />
     <Content Include="Views\TextPoll\CreateSingleImagePoll.cshtml" />
-    <Content Include="Views\TextPoll\CreateBestImagePoll.cshtml" />
-    <Content Include="Views\Profile\ViewProfile.cshtml" />
+    <Content Include="Views\TextPoll\CreateTextPoll.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
