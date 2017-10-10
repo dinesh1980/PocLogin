@@ -17,7 +17,7 @@ namespace AccountVerification.Controllers
 
         
         [HttpGet]
-        public ActionResult Login()
+        public ActionResult Login ()
         {
 
             return View();// Redirect("Index");

@@ -12,10 +12,12 @@ namespace AccountVerification.Controllers
     public class PollController : Controller
     {
         // GET: Poll
-        public ActionResult GetPollResult(GeyMyPollRequest poll)
+        public ActionResult GetPollResult(int pollId)
         {
-            var data = GetPollResultApiClient.GetPollResults(poll);
-            return View(data);
+            var data = GetPollResultApiClient.GetPollResults(pollId);
+            PollResultViewModel result = new PollResultViewModel();
+            result.PollResults = data;
+            return View(result);
         }
 
         public ActionResult GetMyPoll()
