@@ -1,4 +1,5 @@
 ﻿using AccountVerification.ApiClient;
+using AccountVerification.Models;
 using PagedList;
 using System;
 using System.Collections.Generic;
@@ -11,9 +12,9 @@ namespace AccountVerification.Controllers
     public class PollController : Controller
     {
         // GET: Poll
-        public ActionResult GetPollResult(int pollId)
+        public ActionResult GetPollResult(GeyMyPollRequest poll)
         {
-            var data = GetPollResultApiClient.GetPollResults(pollId);
+            var data = GetPollResultApiClient.GetPollResults(poll);
             return View(data);
         }
 
