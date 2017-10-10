@@ -1,61 +1,189 @@
-﻿@model List<AccountVerification.Models.GetPollResult>
-
+﻿@model AccountVerification.Models.PollResultViewModel
 @{
-    ViewBag.Title = "GetPollResult";
+    ViewBag.Title = "Poll Result";
 }
+<style>
+    .well-small {
+        border-radius: .15rem;
+        border: 1px solid #e5e5e5;
+        display: inline-block;
+        background: white;
+        padding: .16667rem .25rem;
+        margin-bottom: 1rem;
+        margin-right: .5rem;
+        margin-left: 0;
+    }
 
-<h2>GetPollResult</h2>
-
-<div>
-    <h4>GetPollResult</h4>
-    <hr />
-    <table>
-        <thead>
-            <tr>
-                <th>Thumbs Status</th>
-                <th>Enable Public</th>
-                <th>Gender</th>
-                <th>Age</th>
-                <th>Income</th>
-                <th>Ethnicity</th>
-                <th>Education</th>
-                <th>Relationship Status</th>
-                <th>Number of Children</th>
-                <th>Smoking</th>
-                <th>Diet Type</th>
-                <th>Home Type</th>
-                <th>Community</th>
-                <th>Politics</th>
-                <th>Mobile Device</th>
-                <th>Literary Preference</th>
-                <th>Books Read PerMonth</th>
-                <th>Employment Status</th>
-            </tr>
-        </thead>
-        @foreach (var item in Model)
-        {
-            <tr>
-                <td> @item.thumbsStatus</td>
-                <td> @item.enablePublic</td>
-                <td> @item.gender</td>
-                <td> @item.age</td>
-                <td> @item.income</td>
-                <td> @item.ethnicity</td>
-                <td> @item.education</td>
-                <td> @item.relationshipStatus</td>
-                <td> @item.numberofChildren</td>
-                <td> @item.smoking</td>
-                <td> @item.dietType</td>
-                <td> @item.homeType</td>
-                <td> @item.community</td>
-                <td> @item.politics</td>
-                <td> @item.mobileDevice</td>
-                <td> @item.literaryPreference</td>
-                <td> @item.booksReadPerMonth</td>
-                <td> @item.employmentStatus</td>
-            </tr>
+    .row, .hero-box {
+        margin-left: -.9375rem;
+        margin-right: -.9375rem;
+    }
 
 
-        }
-    </table>
-  </div>
+
+    .card-block, .hero-box {
+        padding: 1.25rem;
+    }
+
+    .card, .hero-box {
+        position: relative;
+        display: block;
+        margin-bottom: .75rem;
+        background-color: #fff;
+        border: 1px solid #e5e5e5;
+        border-radius: .15rem;
+    }
+
+    .poll-action-row .poll-actions {
+        text-align: right;
+    }
+
+    #jquery-lightbox {
+        width: 100%;
+        max-width: 110%;
+        transform: translateX(-5%);
+    }
+
+
+    .jquery-lightbox {
+        top: 20px !important;
+        width: 100%;
+    }
+</style>
+<section class="normal section-list">
+    <br />
+
+    <div class="container">
+        <div class="pubdisp">
+            <div class="">
+                <a name="full_results"></a>
+                <div class="pr-header row">
+                    <div class="col-sm-4">
+                        <h2>
+                            Full Poll Results
+                        </h2>
+                    </div>
+                    @*<div class="col-sm-8">
+                            <div class="well well-small pull-right">Published Jul 27, 2017</div>
+                            <div class="well well-small pull-right">Public</div>
+                        </div>*@
+                </div>
+            </div>
+
+
+            <div class="card card-block">
+                <h3 class="card-title">Responses</h3>
+
+                <div class="row">
+                    <div class="col-sm-6">
+                        <table class="table table-hover table-bordered table-sm poll-responses" data-ga-trk-hvr="responses-A">
+                            <thead>
+                                <tr class="answer-row">
+                                    <th colspan="100%">Responses to Option A</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                @{int j = 1;}
+                                @foreach (var item in Model.PollResults)
+                                {
+                                    if (item.choice == 1)
+                                    {
+                                        <tr class="answer-row">
+                                            <td class="answer_num">
+                                                @j
+                                            </td>
+                                            <td>
+                                                <!-- <div style="font-size:0.8rem; color:#777; text-align:right; float:right;">
+                                                    follow-up  upvote  downvote
+                                                </div> -->
+                                                <div class="answer-actions">
+                                                </div>
+                                                <div class="answer-content" data-title="GENDER: @item.gender<br/> AGE: @item.age<br/> EDUCATION: @item.education<br/> ETHNICITY: @item.ethnicity<br/> INCOME: @item.income" data-html="true" rel="tooltip" data-original-title="" title="">
+                                                    <div class="answer-explanation" id="1271281-explanation">
+                                                        @item.answerText
+                                                    </div>
+                                                </div>
+                                            </td>
+                                        </tr>
+                                        j++;
+                                    }
+                                }
+                            </tbody>
+                        </table>
+                    </div>  <!-- span6 -->
+                    <div class="col-sm-6">
+                        <table class="table table-hover table-bordered table-sm poll-responses" data-ga-trk-hvr="responses-B">
+                            <thead>
+                                <tr class="answer-row">
+                                    <th colspan="100%">Responses to Option B</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                @{int i = 1;}
+                                @foreach (var item in Model.PollResults)
+                                {
+
+                                    if (item.choice == 2)
+                                    {
+                                        <tr class="answer-row">
+                                            <td class="answer_num">
+                                                @i
+                                            </td>
+                                            <td>
+                                                <!-- <div style="font-size:0.8rem; color:#777; text-align:right; float:right;">
+                                                    follow-up  upvote  downvote
+                                                </div> -->
+                                                <div class="answer-actions">
+                                                </div>
+                                                <div class="answer-content" data-title="GENDER: @item.gender<br/> AGE: @item.age<br/> EDUCATION: @item.education<br/> ETHNICITY: @item.ethnicity<br/> INCOME: @item.income" data-html="true" rel="tooltip" data-original-title="" title="">
+                                                    <div class="answer-explanation" id="1271281-explanation">
+                                                        @item.answerText
+                                                    </div>
+                                                </div>
+                                            </td>
+                                        </tr>
+                                        i++;
+                                    }
+                                }
+                            </tbody>
+                        </table>
+                    </div>  <!-- span6 -->
+                </div> <!-- row-fluid -->
+            </div>
+            
+            <script>
+                var hlt_rows_active_id = null;
+                function toggle_hlt_rows(ids, src_elt) {
+                    // disable hlt_rows_active
+                    // console.log(src_elt);
+                    $('.' + 'freq-selected').removeClass('freq-selected');
+
+                    $(src_elt).parent().addClass('freq-selected');
+                    if (hlt_rows_active_id != null) {
+                        $('#' + hlt_rows_active_id).removeClass('highlight-row');
+                    }
+                    // enable hlt_rows_active
+                    hlt_rows_active_id = src_elt.id;
+                    $('#' + hlt_rows_active_id).addClass('highlight-row');
+
+                    // toggle the rows
+                    hlt_rows(ids);
+                }
+                function hlt_rows(ids) {
+                    $('.answer-row').removeClass('highlight-row');
+                    for (var idx in ids) {
+                        // console.log('#answer-' + ids[idx]);
+                        $('#answer-' + ids[idx]).addClass('highlight-row');
+                    };
+                };
+            </script>
+
+            <style>
+                .qtable td p {
+                    font-size: 1.2em;
+                    line-height: 1.5em;
+                }
+            </style>
+        </div>
+    </div>
+</section>
