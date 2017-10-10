@@ -1,0 +1,213 @@
+﻿@model IEnumerable<AccountVerification.Models.GetMyPoll>
+
+@{
+    ViewBag.Title = "GetMyPoll";
+}
+
+<h2>GetMyPoll</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table-striped table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.alllowedAnonymously)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.isEnabledComments)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.demographicCompleted)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.createDate)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.pollStatus)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.pollTitle)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.question)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.keywords)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.expirationDate)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.pollOverview)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.firstOption)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.secondOption)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.firstImagePath)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.secondImagePath)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.assignmentDurationInSeconds)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.maxAssignments)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.isPublished)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.lifeTimeInSeconds)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.choiceFirstCounter)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.choiceSecondCounter)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.resultCounter)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.isFilterOption)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.filterMainCategory)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.filtersJson)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.isEnablePublic)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.catName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.userName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.totalCount)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.isAdult)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.completedOn)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.tags)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.alllowedAnonymously)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.isEnabledComments)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.demographicCompleted)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.createDate)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.pollStatus)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.pollTitle)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.question)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.keywords)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.expirationDate)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.pollOverview)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.firstOption)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.secondOption)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.firstImagePath)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.secondImagePath)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.assignmentDurationInSeconds)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.maxAssignments)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.isPublished)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.lifeTimeInSeconds)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.choiceFirstCounter)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.choiceSecondCounter)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.resultCounter)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.isFilterOption)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.filterMainCategory)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.filtersJson)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.isEnablePublic)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.catName)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.userName)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.totalCount)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.isAdult)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.completedOn)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.tags)
+        </td>
+        <td>
+            @Html.ActionLink("GetPollResult", "Edit", new { /* id=item.PrimaryKey */ }) |
+            @Html.ActionLink("Details", "Details", new { /* id=item.PrimaryKey */ }) |
+            @Html.ActionLink("Delete", "Delete", new { /* id=item.PrimaryKey */ })
+        </td>
+    </tr>
+}
+
+</table>

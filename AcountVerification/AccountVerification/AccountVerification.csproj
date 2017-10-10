@@ -81,6 +81,14 @@
       <HintPath>..\..\packages\Newtonsoft.Json.10.0.2\lib\net45\Newtonsoft.Json.dll</HintPath>
       <Private>True</Private>
     </Reference>
+    <Reference Include="PagedList, Version=1.17.0.0, Culture=neutral, PublicKeyToken=abbb863e9397c5e1, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\PagedList.1.17.0.0\lib\net40\PagedList.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="PagedList.Mvc, Version=4.5.0.0, Culture=neutral, PublicKeyToken=abbb863e9397c5e1, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\PagedList.Mvc.4.5.0.0\lib\net40\PagedList.Mvc.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
     <Reference Include="RestSharp, Version=105.2.3.0, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>..\packages\RestSharp.105.2.3\lib\net452\RestSharp.dll</HintPath>
       <Private>True</Private>
@@ -150,6 +158,8 @@
   <ItemGroup>
     <Compile Include="ApiClient\AccountRegistrationApiClient.cs" />
     <Compile Include="ApiClient\AccountVerificationApiClient.cs" />
+    <Compile Include="ApiClient\GetMyPollsApiClient.cs" />
+    <Compile Include="ApiClient\GetPollResultApiClient.cs" />
     <Compile Include="ApiClient\TextPollApiClient.cs" />
     <Compile Include="ApiClient\UploadFileApi.cs" />
     <Compile Include="ApiClient\UserProfileApiClient.cs" />
@@ -160,6 +170,7 @@
     <Compile Include="Controllers\BaseController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\LoginController.cs" />
+    <Compile Include="Controllers\PollController.cs" />
     <Compile Include="Controllers\ProfileController.cs" />
     <Compile Include="Controllers\TextPollController.cs" />
     <Compile Include="Global.asax.cs">
@@ -169,6 +180,9 @@
     <Compile Include="Models\CreateTextPolls\GetMyPoll.cs" />
     <Compile Include="Models\CreateTextPolls\TestPollRequestAndResponse.cs" />
     <Compile Include="Models\GetCategoryResponse.cs" />
+    <Compile Include="Models\GetMyPoll\GetMyPoll.cs" />
+    <Compile Include="Models\GetMyPoll\GetMyPollsModel.cs" />
+    <Compile Include="Models\GetPollResult\GetPollResult.cs" />
     <Compile Include="Models\Profile\GetPublicProfileRequest.cs" />
     <Compile Include="Models\Profile\UserProfileResponse.cs" />
     <Compile Include="Models\Profile\UserProfileUpdateResponse.cs" />
@@ -180,6 +194,7 @@
   <ItemGroup>
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
+    <Content Include="Content\PagedList.css" />
     <Content Include="favicon.ico" />
     <Content Include="Global.asax" />
     <Content Include="Content\Site.css" />
@@ -230,6 +245,8 @@
     <Content Include="Views\TextPoll\CreateBestTextPoll.cshtml" />
     <Content Include="Views\TextPoll\CreateSingleImagePoll.cshtml" />
     <Content Include="Views\TextPoll\CreateTextPoll.cshtml" />
+    <Content Include="Views\Poll\GetPollResult.cshtml" />
+    <Content Include="Views\Poll\GetMyPoll.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

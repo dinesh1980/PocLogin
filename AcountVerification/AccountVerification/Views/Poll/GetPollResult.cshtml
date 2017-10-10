@@ -1,0 +1,61 @@
+﻿@model List<AccountVerification.Models.GetPollResult>
+
+@{
+    ViewBag.Title = "GetPollResult";
+}
+
+<h2>GetPollResult</h2>
+
+<div>
+    <h4>GetPollResult</h4>
+    <hr />
+    <table>
+        <thead>
+            <tr>
+                <th>Thumbs Status</th>
+                <th>Enable Public</th>
+                <th>Gender</th>
+                <th>Age</th>
+                <th>Income</th>
+                <th>Ethnicity</th>
+                <th>Education</th>
+                <th>Relationship Status</th>
+                <th>Number of Children</th>
+                <th>Smoking</th>
+                <th>Diet Type</th>
+                <th>Home Type</th>
+                <th>Community</th>
+                <th>Politics</th>
+                <th>Mobile Device</th>
+                <th>Literary Preference</th>
+                <th>Books Read PerMonth</th>
+                <th>Employment Status</th>
+            </tr>
+        </thead>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td> @item.thumbsStatus</td>
+                <td> @item.enablePublic</td>
+                <td> @item.gender</td>
+                <td> @item.age</td>
+                <td> @item.income</td>
+                <td> @item.ethnicity</td>
+                <td> @item.education</td>
+                <td> @item.relationshipStatus</td>
+                <td> @item.numberofChildren</td>
+                <td> @item.smoking</td>
+                <td> @item.dietType</td>
+                <td> @item.homeType</td>
+                <td> @item.community</td>
+                <td> @item.politics</td>
+                <td> @item.mobileDevice</td>
+                <td> @item.literaryPreference</td>
+                <td> @item.booksReadPerMonth</td>
+                <td> @item.employmentStatus</td>
+            </tr>
+
+
+        }
+    </table>
+  </div>
